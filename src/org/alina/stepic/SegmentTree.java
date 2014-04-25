@@ -16,7 +16,8 @@ public class SegmentTree {
     public int min(int l,int r, ArrayList list){
         List list1 = new ArrayList();
         list1 =  list.subList(l,r);
-        int mn = (int) (list1.get((Integer) Collections.min(list1)));
+        int mn = (Integer)Collections.min(list1);
+
         /*for(int i=0; i<list1.size();i++){
 
         }
