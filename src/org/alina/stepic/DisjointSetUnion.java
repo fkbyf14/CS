@@ -2,9 +2,7 @@ package org.alina.stepic;
 
 import java.util.Scanner;
 
-/**
- * Created by dmitry.maksimov on 22.04.14.
- */
+
 public class DisjointSetUnion {
     int[] ss;
     int[] rank;
@@ -46,8 +44,9 @@ public DisjointSetUnion(int size) {
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        //int n = s.nextInt();
+        int n = s.nextInt();
         int m = s.nextInt();
+
         DisjointSetUnion ds = new DisjointSetUnion(s.nextInt());
         while(m-- > 0) {
             String str = s.next();
