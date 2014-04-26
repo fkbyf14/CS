@@ -44,7 +44,7 @@ public DisjointSetUnion(int size) {
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        int n = s.nextInt();
+        //int n = s.nextInt();
         int m = s.nextInt();
 
         DisjointSetUnion ds = new DisjointSetUnion(s.nextInt());

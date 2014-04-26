@@ -45,7 +45,7 @@ public class CsKarats {
         }
             
 
-            for (int i = 0; i <= (x.length) / 2; i++) {
+           /* for (int i = 0; i <= (x.length) / 2; i++) {
                 str1 += x[i];
             }
             Long xl = new Long(str1);
@@ -61,7 +61,7 @@ public class CsKarats {
 
                 System.out.print(string);
             }
-
+*/
 //        String str3 = "";
 //        String str4 = "";
 //        for (int i = 0; i > (x.length) / 2; i++) {
@@ -81,20 +81,21 @@ public class CsKarats {
 
         }
 
-        /**
-         * @param args the command line arguments
-         */
-    
 
-    
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         ArrayList<Integer> list = new ArrayList<Integer>();
+        s.nextLine();
         while (s.hasNextInt()) {
             list.add(s.nextInt());
         }
 
+        ArrayList<Integer> list1 = new ArrayList<Integer>();
+        s.nextLine();
+        while (s.hasNextInt()) {
+            list1.add(s.nextInt());
+        }
         // karatsuba(s.nextInt(), s.nextInt());
         System.out.print(karatsuba(list.toArray(new Integer[list.size()]), list.toArray(new Integer[list.size()])));
 //        for (int i : karatsuba(s.nextInt(),s.nextInt())) {
