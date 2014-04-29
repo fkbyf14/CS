@@ -97,7 +97,7 @@ public class CsKarats {
             list1.add(s.nextInt());
         }
         // karatsuba(s.nextInt(), s.nextInt());
-        System.out.print(karatsuba(list.toArray(new Integer[list.size()]), list.toArray(new Integer[list.size()])));
+        System.out.print(karatsuba(list.toArray(new Integer[list.size()]), list.toArray(new Integer[list1.size()])));
 //        for (int i : karatsuba(s.nextInt(),s.nextInt())) {
 //            System.out.print(i + " ");
 //        }
