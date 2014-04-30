@@ -45,14 +45,15 @@ public class UndirectedGraph {
 			if (z.flag != 2) {
 				DFS(z.id);
 			}
+			if (isAgreed) {
+				return;
+			}
 		}
 		/*for (int z = 0; z < nodes[x].friends.size(); z++) {
 			if (nodes[z].flag != 2 && nodes[x].containsNode(nodes[z])) {
 				DFS(z);
 			}*/
-		if (isAgreed) {
-			return;
-		}
+
 		nodes[x].flag = 2;
 		if(x == UndirectedGraph.x&&!isAgreed){
 
@@ -78,8 +79,8 @@ public class UndirectedGraph {
 			nodes[j].add(nodes[i]);
 
 		}
-		x = s.nextInt();
-		y = s.nextInt();
+		x = s.nextInt()-1;
+		y = s.nextInt()-1;
 		DFS(x);
 	}
 }
