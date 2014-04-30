@@ -8,6 +8,8 @@ import java.util.Scanner;
  */
 public class UndirectedGraph {
 	static Node[] nodes;
+	static int x;
+	static int y;
 	//static boolean[][] graph;
 
 	static class Node {
@@ -22,6 +24,25 @@ public class UndirectedGraph {
 			return friends.contains(n);
 		}
 	}
+
+	static void DFS(int x) {
+		if (nodes[x].flag == 0) {
+			nodes[x].flag = 1;
+		} else {
+			return ;
+		}
+		if (x == y) {
+			System.out.println("True");
+		}
+		for (int z = 0; z < nodes[x].friends.size(); z++) {
+			if (nodes[z].flag != 2 && nodes[x].containsNode(nodes[z])) {
+				DFS(z);
+			}
+			nodes[x].flag = 2;
+		}
+	}
+
+
 
 
 	public static void main(String[] args) {
@@ -39,26 +60,9 @@ public class UndirectedGraph {
 			nodes[j].add(nodes[i]);
 			//graph[i][j] = true;
 		}
-		int x = s.nextInt();
-		int y = s.nextInt();
-
-	static String DFS(int x) {
-		if (nodes[x].flag == 0) {
-			nodes[x].flag = 1;
-		} else {
-			return "";
-		}
-		if (x == y) {
-			System.out.println("True");
-		}
-		for (int z = 0; z < nodes[x].friends.size(); z++) {
-			if (nodes[z].flag != 2 && nodes[x].containsNode(nodes[z])) {
-				DFS(z);
-			}
-			nodes[x].flag = 2;
-		}
-
+		x = s.nextInt();
+		y = s.nextInt();
+		DFS(x);
 	}
-}
 }
 
