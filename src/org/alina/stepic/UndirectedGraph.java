@@ -10,17 +10,18 @@ public class UndirectedGraph {
 	static Node[] nodes;
 	static int x;
 	static int y;
+	static boolean isAgreed = false;
 	//static boolean[][] graph;
 
 	static class Node {
 		int flag = 0;
-		static ArrayList<Node> friends = new ArrayList();
+		ArrayList<Node> friends = new ArrayList();
 
 		public void add(Node a) {
 			friends.add(a);
 		}
 
-		static boolean containsNode(Node n) {
+		boolean containsNode(Node n) {
 			return friends.contains(n);
 		}
 	}
@@ -33,13 +34,19 @@ public class UndirectedGraph {
 		}
 		if (x == y) {
 			System.out.println("True");
+			isAgreed=true;
 		}
 		for (int z = 0; z < nodes[x].friends.size(); z++) {
 			if (nodes[z].flag != 2 && nodes[x].containsNode(nodes[z])) {
 				DFS(z);
 			}
+			if(isAgreed) {
+				return;
+			}
 			nodes[x].flag = 2;
 		}
+		if(x == UndirectedGraph.x && !isAgreed)
+			System.out.println("False");
 	}
 
 
@@ -56,8 +63,8 @@ public class UndirectedGraph {
 		while (m-- > 0) {
 			int i = s.nextInt();
 			int j = s.nextInt();
-			nodes[i].add(nodes[j]);
-			nodes[j].add(nodes[i]);
+			nodes[i-1].add(nodes[j-1]);
+			nodes[j-1].add(nodes[i-1]);
 			//graph[i][j] = true;
 		}
 		x = s.nextInt();
