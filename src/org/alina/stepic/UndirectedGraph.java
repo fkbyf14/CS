@@ -11,7 +11,7 @@ public class UndirectedGraph {
 	static int x;
 	static int y;
 	static boolean isAgreed = false;
-	//static boolean[][] graph;
+
 
 	static class Node {
 		int flag = 0;
@@ -30,42 +30,40 @@ public class UndirectedGraph {
 		if (nodes[x].flag == 0) {
 			nodes[x].flag = 1;
 		} else {
-			return ;
+			return;
 		}
 		if (x == y) {
 			System.out.println("True");
-			isAgreed=true;
+			isAgreed = true;
 		}
 		for (int z = 0; z < nodes[x].friends.size(); z++) {
 			if (nodes[z].flag != 2 && nodes[x].containsNode(nodes[z])) {
 				DFS(z);
 			}
-			if(isAgreed) {
+			if (isAgreed) {
 				return;
 			}
 			nodes[x].flag = 2;
 		}
-		if(x == UndirectedGraph.x && !isAgreed)
+		if (x == UndirectedGraph.x && !isAgreed)
 			System.out.println("False");
 	}
-
-
 
 
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
 		nodes = new Node[s.nextInt()];
-		for (int i = 0; i < s.nextInt(); i++) {
+		for (int i = 0; i < nodes.length; i++) {
 			nodes[i] = new Node();
 		}
 
 		int m = s.nextInt();  //количество рёбер
 		while (m-- > 0) {
-			int i = s.nextInt();
-			int j = s.nextInt();
-			nodes[i-1].add(nodes[j-1]);
-			nodes[j-1].add(nodes[i-1]);
-			//graph[i][j] = true;
+			int i = s.nextInt() - 1;
+			int j = s.nextInt() - 1;
+			nodes[i ].add(nodes[j ]);
+			nodes[j ].add(nodes[i ]);
+
 		}
 		x = s.nextInt();
 		y = s.nextInt();
