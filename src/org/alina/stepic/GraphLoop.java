@@ -20,8 +20,13 @@ public class GraphLoop {
 		int id;
 		ArrayList<Node> friends = new ArrayList();
 
+		//public void add(Node a) {
+			//friends.add(a);
+		//}
 		public void add(Node a) {
-			friends.add(a);
+			if (!friends.contains(a)) {
+				friends.add(a);
+			}
 		}
 
 		public Node(int i) {

@@ -39,18 +39,13 @@ public class StrongConnectCompGraph {
 		} else {
 			return;
 		}
-		if (x == y) {
-			counter++;
-			isAgreed = true;
-		}
+
 		for (Node z : nodes[x].friends) {
 			if (z.flag != 2) {
 				DFS(z.id);
 			}
 		}
-		if (isAgreed) {
-			return;
-		}
+
 		nodes[x].flag = 2;
 
 	}
@@ -69,16 +64,16 @@ public class StrongConnectCompGraph {
 			int j = s.nextInt() - 1;
 			nodes[i].add(nodes[j]);
 
-			x = s.nextInt()-1;
-			y = s.nextInt()-1;
+//			x = s.nextInt()-1;
+//			y = s.nextInt()-1;
 		}
-//		for (Node z:nodes) {
-//			if (z.flag == 0) {
-//				DFS(z.id);
-//				counter++;
-//			}
-//		}
-		DFS(x);
+		for (Node z:nodes) {
+			if (z.flag == 0) {
+				DFS(z.id);
+				counter++;
+			}
+		}
+//		DFS(x);
 		System.out.println(counter);
 	}
 }
